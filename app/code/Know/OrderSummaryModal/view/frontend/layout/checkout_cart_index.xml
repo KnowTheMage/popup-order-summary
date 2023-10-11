@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <referenceBlock name="checkout.cart">
+                <referenceContainer name="cart.summary">
+                    <block class="Magento\Framework\View\Element\Template" name="checkout.cart.summary.modal"
+                           template="Know_OrderSummaryModal::cart-summary-action.phtml"
+                           after="checkout.cart.summary.title">
+                        <arguments>
+                            <argument name="jsLayout" xsi:type="array">
+                                <item name="components" xsi:type="array">
+                                    <item name="summary-modal-component" xsi:type="array">
+                                        <item name="component"
+                                              xsi:type="string">Know_OrderSummaryModal/js/view/cart/summary-modal</item>
+                                    </item>
+                                </item>
+                            </argument>
+                        </arguments>
+                    </block>
+                    <container name="cart.summary.modal" label="Cart Summary Modal" htmlTag="div"
+                               htmlClass="order-summary-modal" after="-" />
+                </referenceContainer>
+            </referenceBlock>
+        </referenceContainer>
+
+        <move element="checkout.cart.shipping" destination="cart.summary.modal" before="-" />
+        <move element="checkout.cart.totals.container" destination="cart.summary.modal" after="checkout.cart.shipping" />
+        <move element="checkout.cart.coupon" destination="cart.summary.modal" after="-" />
+    </body>
+</page>
