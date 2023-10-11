@@ -3,6 +3,6 @@ use Magento\Framework\Component\ComponentRegistrar;
 
 ComponentRegistrar::register(
     ComponentRegistrar::MODULE,
-    'Know_ControlFlow',
+    'Know_OrderSummaryModal',
     __DIR__
 );

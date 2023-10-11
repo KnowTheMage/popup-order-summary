@@ -1,0 +1,21 @@
+<?php
+/**
+ * Shopping Cart Summary Modal template
+ * @var $block \Magento\Framework\View\Element\Template
+ */
+?>
+<div id="summary-modal" data-bind="scope: 'summary-modal-component'">
+    <!-- ko template: getTemplate() --><!-- /ko -->
+    <script type="text/x-magento-init">
+        {
+            "#summary-modal": {
+                "Magento_Ui/js/core/app": <?= /* @noEscape */ $block->getJsLayout() ?>
+            }
+        }
+    </script>
+</div>
+<style>
+    .order-summary-modal {
+        display: none;
+    }
+</style>
